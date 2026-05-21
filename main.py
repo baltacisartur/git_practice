@@ -27,3 +27,9 @@ def sum_two(nums: list, target: int) -> list:
 s = 10
 print(func(s))
 print("hello")
+
+
+# _________________________________________________
+
+def if_palindrome(tmp: list) -> bool:
+    return tmp.lower() == tmp.lower()[::-1]
