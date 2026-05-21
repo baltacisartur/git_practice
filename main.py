@@ -12,6 +12,18 @@ def func(num: int):
     
     return [key for key, value in seen.items() if value > 1], numbers
 
+
+def sum_two(nums: list, target: int) -> list:
+    seen = {}
+    for i, num in enumerate(nums):
+        compliment = target - num
+        if compliment in seen:
+            return seen[compliment], i
+        seen[num] = i
+
+    return []
+
+
 s = 10
 print(func(s))
 print("hello")
