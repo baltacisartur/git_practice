@@ -14,3 +14,4 @@ def func(num: int):
 
 s = 10
 print(func(s))
+print("hello")
