@@ -1,4 +1,6 @@
+import json
 import random
+from uuid import uuid4
 
 
 def func(num: int):
@@ -24,6 +26,27 @@ def sum_two(nums: list, target: int) -> list:
     return []
 
 
+def new_func(name: str, count: str):
+    test = {}
+    try:
+        with open("info.json", "r", encoding="utf-8") as file:
+            info = json.load(file)
+        
+        if info == test:
+            raise ValueError("Файд пустой")
+        else:
+            print("Файл прочитан")
+        
+    except (FileNotFoundError, json.JSONDecodeError):
+        info = {}
+    
+    info[name] = count
+
+    with open("info.json", "w", encoding="utf-8") as file:
+        json.dump(info, file, ensure_ascii=False, indent=2)
+        print(f"файл загружен")
+
+
 s = 10
 print(func(s))
 print("hello")
@@ -33,3 +56,11 @@ print("hello")
 
 def if_palindrome(tmp: list) -> bool:
     return tmp.lower() == tmp.lower()[::-1]
+
+#___________________________________________________
+
+name = "Barsik"
+count = str(uuid4())[0:8]
+
+if __name__ == "__main__":
+    print(new_func(name, count))
