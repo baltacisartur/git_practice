@@ -47,6 +47,18 @@ def new_func(name: str, count: str):
         print(f"файл загружен")
 
 
+def sum_list(numbers: list) -> int | float:
+    result = 0
+    for num in numbers:
+        if isinstance(num, (int, float)):
+            result += num
+        else:
+            continue
+    
+    return result
+
+
+
 s = 10
 print(func(s))
 print("hello")
@@ -64,3 +76,14 @@ count = str(uuid4())[0:8]
 
 if __name__ == "__main__":
     print(new_func(name, count))
+
+#___________________________________________________
+
+num = [1, 2, 3, 4, 5, 6, 7, 8, 9, "abc"]
+
+if __name__ == "__main__":
+    print(sum_list(num))
+
+#____________________________________________________
+
+print("Success!")
